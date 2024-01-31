@@ -1,57 +1,54 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, StyleSheet } from 'react-native';
-
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={styles.tabBarIcon} {...props} />;
-}
+import { Tabs } from 'expo-router';
+import { Home, Sparkles } from 'lucide-react-native';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'black',
+        headerShown: false,
+        tabBarStyle: {
+          position: 'absolute',
+          bottom: 25,
+          left: 25,
+          right: 25,
+          height: 80,
+          elevation: 20,
+          shadowColor: '#000',
+          borderRadius: 25,
+          backgroundColor: '#18181b',
+          borderColor: '#1a2e05',
+        },
       }}>
       <Tabs.Screen
-        name="index"
+        name="home/index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color="gray"
-                    style={[styles.headerRight, { opacity: pressed ? 0.5 : 1 }]}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          tabBarShowLabel: false,
+          tabBarIcon(props) {
+            return (
+              <Home
+                size={25}
+                className={`${props.focused ? 'text-gray-100' : 'text-zinc-500'}`}
+                fill={props.focused ? '#f3f4f6' : '#71717a'}
+              />
+            );
+          },
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="uiComponents"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarShowLabel: false,
+          tabBarIcon(props) {
+            return (
+              <Sparkles
+                size={25}
+                className={`${props.focused ? 'text-gray-100' : 'text-zinc-500'}`}
+                fill={props.focused ? '#f3f4f6' : '#71717a'}
+              />
+            );
+          },
         }}
       />
     </Tabs>
   );
 }
-
-const styles = StyleSheet.create({
-  headerRight: {
-    marginRight: 15,
-  },
-  tabBarIcon: {
-    marginBottom: -3,
-  },
-});
