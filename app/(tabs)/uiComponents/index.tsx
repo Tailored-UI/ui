@@ -11,6 +11,10 @@ const Index = () => {
       name: 'Button',
       onPress: () => router.push('/ui/button'),
     },
+    {
+      name: 'Tab Navigation',
+      onPress: () => router.push('/ui/bottomTab'),
+    },
   ];
 
   return (
