@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { Text } from 'react-native';
 import { cn } from '~/lib/utils';
 
+//Type tab : to declare the tab contents
 export type tab = {
   name?: string;
   Icon: keyof typeof icons;
@@ -41,6 +42,7 @@ interface TabBarIconProps {
   strokeColor?: string;
 }
 
+//Tabicons
 export const TabIcon: FC<TabBarIconProps> = ({
   icon,
   className,
@@ -63,6 +65,7 @@ export const TabIcon: FC<TabBarIconProps> = ({
   );
 };
 
+//tab label
 export const TabLabel = ({
   label,
   classname,
@@ -81,6 +84,7 @@ export const TabLabel = ({
   );
 };
 
+//Bottom Tab Component 
 const BottomTab: FC<BottomTabProps> = ({
   headershown,
   floating,
