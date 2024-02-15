@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { Text } from 'react-native';
 import { cn } from '~/lib/utils';
 
+// creating custom type for tab
 export type tab = {
   name?: string;
   Icon: keyof typeof icons;
@@ -12,6 +13,7 @@ export type tab = {
   size?: number;
 };
 
+// creating custom type for BottomTab
 interface BottomTabProps {
   headershown?: boolean;
   floating?: boolean;
@@ -31,6 +33,7 @@ interface BottomTabProps {
   TabData?: tab[];
 }
 
+// creating custom type for TabBarIcon
 interface TabBarIconProps {
   icon: keyof typeof icons;
   className?: string;
@@ -41,6 +44,7 @@ interface TabBarIconProps {
   strokeColor?: string;
 }
 
+// TabIcon component
 export const TabIcon: FC<TabBarIconProps> = ({
   icon,
   className,
@@ -63,6 +67,7 @@ export const TabIcon: FC<TabBarIconProps> = ({
   );
 };
 
+// TabLabel component
 export const TabLabel = ({
   label,
   classname,
@@ -81,6 +86,7 @@ export const TabLabel = ({
   );
 };
 
+// BottomTab component
 const BottomTab: FC<BottomTabProps> = ({
   headershown,
   floating,
@@ -104,6 +110,7 @@ const BottomTab: FC<BottomTabProps> = ({
       screenOptions={{
         headerShown: headershown ? headershown : false,
         tabBarStyle: {
+          // NOTE: custom styles for tab bar
           position: 'absolute',
           bottom: floating ? (padding ? padding : 20) : 0,
           left: floating ? (padding ? padding : 20) : 0,
@@ -117,6 +124,7 @@ const BottomTab: FC<BottomTabProps> = ({
           paddingBottom: showLabel ? 10 : 0,
         },
       }}>
+      {/* mapping all the screens in the tab */}
       {TabData!.map((item, index) => {
         const active = activeColor ? activeColor : '#ffffff';
         const inactive = inactiveColor ? inactiveColor : '#71717a';
