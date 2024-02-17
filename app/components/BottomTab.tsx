@@ -44,7 +44,7 @@ interface TabBarIconProps {
   strokeColor?: string;
 }
 
-// TabIcon component
+// Tabicon Component
 export const TabIcon: FC<TabBarIconProps> = ({
   icon,
   className,
@@ -67,7 +67,7 @@ export const TabIcon: FC<TabBarIconProps> = ({
   );
 };
 
-// TabLabel component
+// tab label
 export const TabLabel = ({
   label,
   classname,
@@ -86,7 +86,7 @@ export const TabLabel = ({
   );
 };
 
-// BottomTab component
+<!-- Bottom Tab component -->
 const BottomTab: FC<BottomTabProps> = ({
   headershown,
   floating,
