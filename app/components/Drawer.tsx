@@ -2,6 +2,11 @@ import { View, Text } from 'react-native'
 import { Drawer } from 'expo-router/drawer';
 import React from 'react'
 
+type drawerMenu = [
+  width: number,
+  color: string,
+]
+
 const DrawerMenu = () => {
   return (
     <Drawer
