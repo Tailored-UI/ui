@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import { Drawer } from 'expo-router/drawer';
 import React from 'react'
 
+// custom types for DrawerMenu
 type drawerMenu = [
   width: number,
   color: string,
