@@ -86,7 +86,7 @@ export const TabLabel = ({
   );
 };
 
-<!-- Bottom Tab component -->
+// Bottom Tab Component
 const BottomTab: FC<BottomTabProps> = ({
   headershown,
   floating,
